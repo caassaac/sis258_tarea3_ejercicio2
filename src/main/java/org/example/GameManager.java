@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.*;
 
 public class GameManager {
-    private static final int PORT = 5555; // Puerto en el que el servidor escuchará conexiones
+    private static final int port = 5555; // Puerto en el que el servidor escuchará conexiones
     private final List<ClientHandler> players = Collections.synchronizedList(new ArrayList<>());
     private String currentWord; // Palabra actual que se usará en la partida
     private boolean gameInProgress = false; // Indica si hay una partida en curso
@@ -15,8 +15,8 @@ public class GameManager {
 
     // Mét.odo para iniciar el servidor
     public void start() throws IOException {
-        serverSocket = new ServerSocket(PORT);
-        System.out.println("Servidor iniciado en el puerto " + PORT);
+        serverSocket = new ServerSocket(port);
+        System.out.println("Servidor iniciado en el puerto " + port);
 
         // Inicia un hilo para aceptar nuevas conexiones de clientes
         new Thread(this::acceptPlayers).start();
